@@ -135,6 +135,203 @@
         width: 100%;
       }
     }
+  
+
+    .hero-section {
+      background: url('https://jitechno.com/assets/images/slider/slide1.jpg') no-repeat center center/cover;
+      height: 100vh;
+      position: relative;
+    }
+
+    .card-container {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      text-align: center;
+      padding: 20px 15px;
+    }
+
+    .card-icon {
+      background: #fff;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      margin: -40px auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: #8B0000;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+      color: #8B0000;
+    }
+
+    .card button {
+      background: #FFC107;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      position: fixed;
+      top: 200px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .social-icons a {
+      background: #8B0000;
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+
+    /* Floating Buttons Right */
+    .right-buttons {
+      position: fixed;
+      top: 200px;
+      right: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .right-buttons button {
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .right-buttons .erp { background: orange; }
+    .right-buttons .notice { background: #00bcd4; }
+    .right-buttons .career { background: #8B0000; }
+    .right-buttons .job { background: crimson; }
+
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+        bottom: 20px;
+      }
+    }
+
+
+    .about-section {
+      display: flex;
+      padding: 50px 30px;
+      gap: 40px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-text h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #8B0000;
+    }
+
+    .about-text h2 span {
+      color: #444;
+      font-weight: 400;
+    }
+
+    .about-text p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+
+    .read-btn {
+      background: #FFC107;
+      border: none;
+      padding: 10px 20px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .about-video {
+      flex: 1;
+      min-width: 300px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .about-video video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Social Icons */
+    .social-icons {
+      position: fixed;
+      top: 200px;
+      left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .social-icons a {
+      background: #8B0000;
+      color: white;
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -174,6 +371,77 @@
       </nav>
     </div>
   </div>
+
+ 
+
+<div class="hero-section">
+  <!-- Left Social Icons -->
+  <div class="social-icons">
+    <a href="#"><i>📸</i></a>
+    <a href="#"><i>📘</i></a>
+    <a href="#"><i>🐦</i></a>
+  </div>
+
+  <!-- Right Floating Buttons -->
+  <div class="right-buttons">
+    <button class="job">Placement & Jobs</button>
+    <button class="erp">📞 ERP Portal</button>
+    <button class="notice">📢 Notice</button>
+    <button class="career">Career</button>
+  </div>
+
+  <!-- Cards Section -->
+  <div class="card-container">
+    <div class="card">
+      <div class="card-icon">🏛️</div>
+      <h3>Academics</h3>
+      <button>View More</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">📖</div>
+      <h3>Admission 2025</h3>
+      <button>Register Now</button>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🗂️</div>
+      <h3>Latest Events</h3>
+      <button>View More</button>
+    </div>
+  </div>
+</div>
+
+ 
+
+
+<!-- Social Icons -->
+<div class="social-icons">
+  <a href="#"><i>📸</i></a>
+  <a href="#"><i>📘</i></a>
+  <a href="#"><i>🐦</i></a>
+</div>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="about-text">
+    <h2><span>About</span> JNCET TRUST</h2>
+    <p>JAWAHARLAL NEHRU CHARITABLE EDUCATIONAL TRUST, BORAWAN was founded in 1996 under the Trust Registration Act with the registration no.1/95-96 dated 13-06-1996 by Late Shri Subhash Ji Yadav a man with the vision to serve the community at large.</p>
+    <p>Since its inception the trust is striving hard for the development of poor & weaker section of the society viz, SC, ST, OBC & Minority. During the last 20 years trust had made deliberate efforts for the development of rural youth belonging to SC ST & OBC category by establishing various education Institutes to empower them in all aspects as financially & socially.</p>
+    <p>Trust had developed an educational complex as “VidyaVihar” in the village – Borawan, Tehsil – Kasrawad District – Khargone (M.P.) 451228. In this educational hub the trust has the following institutes :</p>
+    <button class="read-btn">Read More</button>
+  </div>
+
+  <div class="about-video">
+    <video autoplay muted loop playsinline>
+      <source src="https://jitechno.com/assets/images/course-video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+
 
   <script>
     function toggleMenu() {
