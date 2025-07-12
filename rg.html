@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration - JIT</title>
+  <style>
+    body {
+      background: #ffcc00;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .form-box {
+      background: #fff8e1;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 15px;
+      display: block;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #ffc107;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-box">
+    <h2>JIT Admission Registration</h2>
+    <form id="regForm">
+      <label>First Name *</label>
+      <input type="text" id="fname" required>
+
+      <label>Last Name *</label>
+      <input type="text" id="lname" required>
+
+      <label>Email *</label>
+      <input type="email" id="email" required>
+
+      <label>Mobile Number *</label>
+      <input type="text" id="mobile" required>
+
+      <label>Institute</label>
+      <select id="institute" required>
+        <option value="">Select Institute</option>
+        <option>Jawaharlal Institute of Technology</option>
+        <option>Other</option>
+      </select>
+
+      <label>Program</label>
+      <select id="program" required>
+        <option value="">Select Program</option>
+        <option value="Diploma CSE">Diploma CSE</option>
+        <option value="B.Tech CSE">B.Tech CSE</option>
+        <option value="BCA">BCA</option>
+        <option value="MBA">MBA</option>
+      </select>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+
+    <div class="footer">
+      <a href="admin.html">Admin Panel</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = {
+        fname: fname.value.trim(),
+        lname: lname.value.trim(),
+        email: email.value.trim(),
+        mobile: mobile.value.trim(),
+        institute: institute.value,
+        program: program.value
+      };
+
+      let users = JSON.parse(localStorage.getItem("students") || "[]");
+      users.push(data);
+      localStorage.setItem("students", JSON.stringify(users));
+
+      alert("✅ Registration Successful!");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
