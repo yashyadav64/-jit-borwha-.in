@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Fee Payment</title>
+  <style>
+    body {
+      background-color: #ffe6e6;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #a8f7a2;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+
+    .readonly-box {
+      background: #e9e9e9;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    .policy {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #28a745;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .link-area {
+      margin-top: 15px;
+    }
+
+    .pay-link {
+      color: #0066cc;
+      word-break: break-word;
+    }
+
+    .student-details {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #d9fdd3;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .student-details p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>💳 Online Student Fee</h2>
+
+  <label>Enrollment Number:</label>
+  <input type="text" id="enroll" placeholder="Enter your enrollment no." />
+
+  <label>Amount (₹):</label>
+  <div class="readonly-box">5000</div>
+
+  <div class="policy">
+    <input type="checkbox" id="privacy" /> Privacy Policy: Your details will be secure and used only for fee payment.<br>
+    <input type="checkbox" id="refund" /> Refund Policy: No refund after payment.
+  </div>
+
+  <div class="error" id="errorMsg"></div>
+
+  <button class="btn" id="payBtn" onclick="makePayment()">Pay Now</button>
+
+  <div class="student-details" id="studentDetails"></div>
+
+  <div class="link-area" id="linkArea"></div>
+</div>
+
+<script>
+  const enrollInput = document.getElementById("enroll");
+  const privacy = document.getElementById("privacy");
+  const refund = document.getElementById("refund");
+  const errorMsg = document.getElementById("errorMsg");
+  const studentDetails = document.getElementById("studentDetails");
+  const linkArea = document.getElementById("linkArea");
+
+  const studentData = {
+    "23165C04069": { name: "Yash Yadav", course: "Diploma CSE", semester: "4th Semester" },
+    "23165C04004": { name: "Aadiaty Naik", course: "Diploma CSE", semester: "4th Semester" },
+    "23165C04011": { name: "Arpit Chauhan", course: "Diploma CSE", semester: "4th Semester" }
+  };
+
+  function makePayment() {
+    const enroll = enrollInput.value.trim();
+    const fixedAmount = 5000;
+
+    if (!studentData[enroll]) {
+      errorMsg.innerText = "❌ Invalid Enrollment Number.";
+      studentDetails.style.display = "none";
+      linkArea.innerHTML = "";
+      return;
+    }
+
+    if (!privacy.checked || !refund.checked) {
+      errorMsg.innerText = "✅ Please accept Privacy & Refund Policy.";
+      return;
+    }
+
+    const student = studentData[enroll];
+
+    studentDetails.innerHTML = `
+      <p>👤 Name: ${student.name}</p>
+      <p>📘 Course: ${student.course}</p>
+      <p>📅 Semester: ${student.semester}</p>
+      <p>💰 Amount: ₹${fixedAmount}</p>
+    `;
+    studentDetails.style.display = "block";
+
+    const paymentLink = `https://rzp.io/rzp/KIc5lzyr`;
+    linkArea.innerHTML = `<p>✅ Payment Link:</p><a class="pay-link" href="${paymentLink}" target="_blank">${paymentLink}</a>`;
+    errorMsg.innerText = "";
+  }
+</script>
+
+</body>
+</html>
