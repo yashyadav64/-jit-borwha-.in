@@ -332,6 +332,231 @@
         flex-direction: column;
       }
     }
+  
+
+    .section-heading {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading span {
+      color: #8B0000;
+      font-weight: bold;
+    }
+
+    .departments-container {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .department-card {
+      flex: 1 1 45%;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .department-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .department-content {
+      padding: 20px;
+    }
+
+    .department-content h3 {
+      font-size: 20px;
+      color: #032A63;
+      margin-bottom: 10px;
+    }
+
+    .department-content p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      margin-top: 15px;
+      color: #C62828;
+      font-weight: bold;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .arrows {
+      margin: 20px 0;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .arrows button {
+      background: #FFC107;
+      border: none;
+      padding: 8px 15px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 4px;
+    }
+
+    @media(max-width: 768px) {
+      .department-card {
+        flex: 1 1 100%;
+      }
+    }
+  
+    .facilities-section {
+      background: linear-gradient(rgba(139, 0, 0, 0.85), rgba(139, 0, 0, 0.85)),
+        url('https://jitechno.com/assets/img/bg/bg1.jpg') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .facilities-section h2 {
+      font-size: 40px;
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
+
+    .facility-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .facility-box {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 500px;
+      backdrop-filter: blur(5px);
+      transition: 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .facility-box:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .facility-box i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .facility-box h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .facility-box p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .facility-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .facility-box {
+        max-width: 100%;
+      }
+
+ 
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 600px;
+      max-width: 90%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #f2b707;
+      border: none;
+      color: white;
+      font-size: 22px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .view-all {
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #f2b707;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .slide img {
+        height: 250px;
+      }
+
+      .nav-btn {
+        font-size: 18px;
+        padding: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -441,14 +666,215 @@
 </section>
 
 
+  <h2 class="section-heading"><span>Academics</span> Departments</h2>
+
+  <div class="arrows">
+    <button>&lt;</button>
+    <button>&gt;</button>
+  </div>
+
+  <div class="departments-container">
+    <!-- Card 1 -->
+    <div class="department-card">
+      <img src="https://jitechno.com/assets/images/blog/latest-blog/Civil%20Engineering.jpg" alt="Civil Engineering">
+      <div class="department-content">
+        <h3>Civil Engineering</h3>
+        <p>The Department of Civil Engineering was established in 2002. This is an age of construction and infrastructure development...</p>
+        <a href="#" class="read-more">READ MORE</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="department-card">
+      <img src="https://jitechno.com/assets/images/blog/latest-blog/Electronics%20Engineering.jpg" alt="EEE">
+      <div class="department-content">
+        <h3>Electrical & Electronics Engineering</h3>
+        <p>The Department of Electrical & Electronics Engineering was established in 1997. The department focuses on power, circuits, and control systems...</p>
+        <a href="#" class="read-more">READ MORE</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="facilities-section">
+    <h2>Our Facilities</h2>
+    <div class="facility-grid">
+
+      <div class="facility-box">
+        <i class="fas fa-bed"></i>
+        <h3>Hostels</h3>
+        <p>
+          JIT has three separate hostels equipped with all modern facilities like reading room, recreation room, TV room,
+          indoor and outdoor games with hygienic breakfast, lunch and dinner. These hostels for junior boys, senior boys and girls,
+          in its own campus.
+        </p>
+      </div>
+
+      <div class="facility-box">
+        <i class="fas fa-building-columns"></i>
+        <h3>Our Infrastructure</h3>
+        <p>
+          Jawaharlal Institute of Technology as a hub of technical education, is situated at Borawan, Khargone.
+          With a positive atmosphere it provides students an opportunity to sharpen skills and acquire positive attitude.
+        </p>
+      </div>
+
+      <div class="facility-box">
+        <i class="fas fa-bell"></i>
+        <h3>Temple and Ground</h3>
+        <p>
+          Our campus has a soul soothing Radha Krishna temple. It is reserved for prayer and sacrifice. We also have a
+          very big playground for students to engage in physical activity.
+        </p>
+      </div>
+
+      <div class="facility-box">
+        <i class="fas fa-book"></i>
+        <h3>Our Library</h3>
+        <p>
+          Our library has 25000+ books, e-alerts, current affairs updates, and reference materials. It supports all academic and
+          research needs of students and faculty.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+
+ 
+
+
+  <h2><span style="color:#800000;">Our</span> Gallery</h2>
+
+  <div class="slider-container">
+    <button class="nav-btn prev" onclick="prevSlide()">&#10094;</button>
+
+    <div class="slider" id="slider">
+      <div class="slide"><img src="https://jitechno.com/assets/images/slider/slide1.jpg" alt="Image 1"></div>
+      <div class="slide"><img src="https://jitechno.com/assets/images/slider/slide2.jpg" alt="Image 2"></div>
+      <div class="slide"><img src="https://jitechno.com/assets/images/slider/slide3.jpg" alt="Image 3"></div>
+    </div>
+
+    <button class="nav-btn next" onclick="nextSlide()">&#10095;</button>
+  </div>
+
+  <button class="view-all">View All</button>
+
+ 
+
+
+
+<!-- ✅ Footer HTML -->
+<footer style="background-color: #800000; color: white; padding: 60px 20px 30px; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+    <!-- Left Logo and Social -->
+    <div style="flex: 1 1 250px; text-align: center; margin-bottom: 30px;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC_elmA4ErkwCwwLga3JkhjpTaYPVBjGtP_w&s" alt="Logo" style="width: 100px;">
+      <h3 style="margin: 15px 0;">Jawaharlal Institute of Technology</h3>
+      <div>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style="width: 30px; margin: 0 5px;"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" style="width: 30px; margin: 0 5px;"></a>
+        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" style="width: 30px; margin: 0 5px;"></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex: 1 1 200px; margin-bottom: 30px;">
+      <h3>Quick Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>⚫ Founder JNCET</li>
+        <li>⚫ JNCET TRUST</li>
+        <li>⚫ Chairman</li>
+        <li>⚫ Principal Message</li>
+        <li>⚫ Dean Academic Message</li>
+      </ul>
+    </div>
+
+    <!-- Useful Links -->
+    <div style="flex: 1 1 200px; margin-bottom: 30px;">
+      <h3>Useful Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>⚫ Mandatory Disclosure</li>
+        <li>⚫ Academic Event</li>
+        <li>⚫ AICTE Feedback</li>
+        <li>⚫ Fee Structure</li>
+        <li>⚫ Gallery</li>
+      </ul>
+    </div>
+
+    <!-- Useful Links 2 -->
+    <div style="flex: 1 1 200px; margin-bottom: 30px;">
+      <h3>Useful Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li>⚫ Contact Us</li>
+        <li>⚫ News Media</li>
+        <li>⚫ About T&P</li>
+        <li>⚫ Grievance</li>
+        <li>⚫ Career</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Address and Map -->
+  <div style="max-width: 1200px; margin: 40px auto 10px; display: flex; flex-wrap: wrap; justify-content: space-between;">
+
+    <!-- Address -->
+    <div style="flex: 1 1 300px; padding: 10px;">
+      <h3>📍 Address</h3>
+      <p>Borawan Tehsil Kasrawad, Vidhya Vihar Borawan,<br>Pin:451228 Dist. Khargone (M.P.)</p>
+    </div>
+
+    <!-- Map -->
+    <div style="flex: 1 1 350px; padding: 10px;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.9989258579816!2d75.0437805748573!3d22.179191579739254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962eb2dcf979315%3A0x55576c20d26b9ce0!2sJawaharlal%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1657297695481!5m2!1sen!2sin" width="100%" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+<!-- Designed by -->
+  <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); margin-top: 30px;">
+    <p style="color: #ffdbdb;">🔧 Designed by Arpit Chauhan</p>
+  </div>
+    <!-- Contact -->
+    <div style="flex: 1 1 300px; padding: 10px;">
+      <h3>📞 Call us for more details</h3>
+      <p>+91 9243558756, +91 9243566099</p>
+
+      <h3>📧 Email us</h3>
+      <p>principal_jit@rediffmail.com<br>principal@jitechno.com</p>
+    </div>
+  </div>
+
+  
+</footer>
 
 
   <script>
     function toggleMenu() {
       document.getElementById('menu').classList.toggle('active');
     }
+ 
+    let slider = document.getElementById('slider');
+    let index = 0;
+
+    function showSlide() {
+      slider.style.transform = 'translateX(' + (-index * 100) + '%)';
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slider.children.length;
+      showSlide();
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slider.children.length) % slider.children.length;
+      showSlide();
+    }
+
+    setInterval(() => {
+      nextSlide();
+    }, 4000); // Auto slide every 4 seconds
   </script>
 
 </body>
 </html>
-
