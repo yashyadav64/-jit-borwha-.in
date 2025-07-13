@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🛠️ GD Admin Control Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .panel-container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .card:hover {
+      background: #e0f7fa;
+      transform: scale(1.03);
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<div class="panel-container">
+  <h2>🎯JIT admin</h2>
+
+  <div class="grid">
+    <a class="card" href="student-dashboard.html" target="_blank">🎓 Student Dashboard</a>
+    <a class="card" href="check-fee.html" target="_blank">💳 Check Fee Status</a>
+    <a class="card" href="pay-fee.html" target="_blank">💰 Pay College Fee</a>
+    <a class="card" href="notice-apply.html" target="_blank">📝 Apply Notice Form</a>
+    <a class="card" href="notice-admin.html" target="_blank">📋 Admin Notice Approval</a>
+    <a class="card" href="bus-route.html" target="_blank">🚌 Bus Route Info</a>
+    <a class="card" href="registration.html" target="_blank">🔐 New Student Registration</a>
+    <a class="card" href="admin-student-list.html" target="_blank">📑 View Registered Students</a>
+  </div>
+
+  <div class="footer">
+    Designed by Yash Yadav & Arpit Chauhan © 2025 -
+  </div>
+</div>
+
+</body>
+</html>
