@@ -2,104 +2,130 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin - Notice Applications</title>
+  <title>Notice Apply Form</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
+      background: #e3f2fd;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
       padding: 30px;
-      background: #f9fbe7;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
 
     h2 {
       text-align: center;
-      margin-bottom: 20px;
-      color: #33691e;
+      margin-bottom: 25px;
+      color: #0d47a1;
     }
 
-    table {
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select {
       width: 100%;
-      border-collapse: collapse;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    th, td {
       padding: 10px;
+      margin-top: 5px;
       border: 1px solid #ccc;
-      text-align: center;
+      border-radius: 5px;
     }
 
-    th {
-      background: #558b2f;
+    button {
+      margin-top: 20px;
+      background: #1976d2;
       color: white;
-    }
-
-    tr:nth-child(even) {
-      background: #f1f8e9;
-    }
-
-    .btn {
-      padding: 6px 12px;
-      background: #2e7d32;
-      color: white;
+      padding: 10px 20px;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
     }
 
-    .btn:disabled {
-      background: gray;
+    .success {
+      margin-top: 15px;
+      color: green;
+      font-weight: bold;
+    }
+
+    .payment-link {
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-<h2>📋 All Notice Applications</h2>
+<div class="container">
+  <h2>📄 Notice Form Apply</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Enrollment</th>
-      <th>Name</th>
-      <th>Course</th>
-      <th>Semester</th>
-      <th>Notice Type</th>
-      <th>Status</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody id="appTable"></tbody>
-</table>
+  <label>Enrollment Number:</label>
+  <input type="text" id="enroll" placeholder="Enter enrollment no.">
+
+  <label>Full Name:</label>
+  <input type="text" id="name" placeholder="Enter your name">
+
+  <label>Course:</label>
+  <select id="course">
+    <option value="">-- Select Course --</option>
+    <option value="Diploma CSE">Diploma CSE</option>
+    <option value="Diploma ME">Diploma ME</option>
+    <option value="Diploma CE">Diploma CE</option>
+  </select>
+
+  <label>Semester:</label>
+  <select id="semester">
+    <option value="">-- Select Semester --</option>
+    <option value="1st">1st</option>
+    <option value="2nd">2nd</option>
+    <option value="3rd">3rd</option>
+    <option value="4th">4th</option>
+    <option value="5th">5th</option>
+    <option value="6th">6th</option>
+  </select>
+
+  <label>Notice Type:</label>
+  <select id="noticeType">
+    <option value="">-- Select Type --</option>
+    <option value="Back Form">Back Form</option>
+    <option value="Regular Exam">Regular Exam</option>
+    <option value="Scholarship Form">Scholarship Form</option>
+  </select>
+
+  <button onclick="submitForm()">Apply & Proceed to Payment</button>
+
+  <div class="success" id="successMsg"></div>
+</div>
 
 <script>
-  const data = JSON.parse(localStorage.getItem("noticeApplications") || "[]");
-  const table = document.getElementById("appTable");
+  function submitForm() {
+    const enroll = document.getElementById("enroll").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const course = document.getElementById("course").value;
+    const semester = document.getElementById("semester").value;
+    const noticeType = document.getElementById("noticeType").value;
 
-  function render() {
-    table.innerHTML = "";
-    data.forEach((app, i) => {
-      table.innerHTML += `
-        <tr>
-          <td>${app.enroll}</td>
-          <td>${app.name}</td>
-          <td>${app.course}</td>
-          <td>${app.semester}</td>
-          <td>${app.noticeType}</td>
-          <td>${app.status}</td>
-          <td><button class="btn" onclick="approve(${i})" ${app.status === "Approved" ? "disabled" : ""}>Confirm</button></td>
-        </tr>
+    if (enroll && name && course && semester && noticeType) {
+      const data = JSON.parse(localStorage.getItem("noticeApplications") || "[]");
+      data.push({ enroll, name, course, semester, noticeType, status: "Pending" });
+      localStorage.setItem("noticeApplications", JSON.stringify(data));
+      
+      document.getElementById("successMsg").innerHTML = `
+        ✅ Application submitted!<br><br>
+        <a href="https://rzp.io/rzp/KIc5lzyrYE" target="_blank">💳 Click here to Pay Fee</a>
       `;
-    });
+    } else {
+      alert("Please fill all fields.");
+    }
   }
-
-  function approve(index) {
-    data[index].status = "Approved";
-    localStorage.setItem("noticeApplications", JSON.stringify(data));
-    render();
-  }
-
-  render();
 </script>
 
 </body>
 </html>
+=
