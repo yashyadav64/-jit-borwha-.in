@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Registrations</title>
+  <style>
+    body {
+      background: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 30px;
+    }
+
+    .login-box {
+      max-width: 400px;
+      background: #fff;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 12px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background: #007bff;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box" id="loginBox">
+  <h2 style="text-align:center;">🔐 Admin Login</h2>
+  <input type="text" id="adminID" placeholder="Admin ID">
+  <input type="password" id="adminPass" placeholder="Password">
+  <button onclick="checkLogin()">Login</button>
+  <div class="error" id="errorMsg"></div>
+</div>
+
+<div id="adminPanel" style="display:none;">
+  <a href="register.html" class="back">← Back to Registration</a>
+  <h2>📋 All Registered Students</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Institute</th>
+        <th>Program</th>
+      </tr>
+    </thead>
+    <tbody id="dataBody"></tbody>
+  </table>
+</div>
+
+<script>
+  const allowedAdmins = {
+    "ar123": "123456",
+    "idpss123": "456789",
+    "ya123": "123456"
+  };
+
+  function checkLogin() {
+    const id = document.getElementById("adminID").value.trim();
+    const pass = document.getElementById("adminPass").value.trim();
+    const errorMsg = document.getElementById("errorMsg");
+
+    if (allowedAdmins[id] && allowedAdmins[id] === pass) {
+      document.getElementById("loginBox").style.display = "none";
+      document.getElementById("adminPanel").style.display = "block";
+      loadData();
+    } else {
+      errorMsg.textContent = "❌ Invalid Admin ID or Password.";
+    }
+  }
+
+  function loadData() {
+    const data = JSON.parse(localStorage.getItem("students") || "[]");
+    const tbody = document.getElementById("dataBody");
+    tbody.innerHTML = "";
+
+    data.forEach(student => {
+      const row = `<tr>
+        <td>${student.fname} ${student.lname}</td>
+        <td>${student.email}</td>
+        <td>${student.mobile}</td>
+        <td>${student.institute}</td>
+        <td>${student.program}</td>
+      </tr>`;
+      tbody.innerHTML += row;
+    });
+  }
+</script>
+
+</body>
+</html>
